@@ -1,0 +1,42 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large" id="thirdparty">
+    Are you applying for {{ serviceName }} for yourself?
+  </h1>
+
+  <form action="thirdParty" method="post" class="form" id="theForm">
+
+    <fieldset class="form-group">
+      <label class="block-label" for="radio-yes">
+        <input id="radio-yes" type="radio" name="radio-inline-group" value="Yes">
+        Yes, you’re the carer
+      </label>
+      <label class="block-label" for="radio-no">
+        <input id="radio-no" type="radio" name="radio-inline-group" value="No" data-target="#no-target">
+        No, you’re applying on behalf of the carer
+      </label>
+    </fieldset>
+
+    <fieldset class="form-group js-hidden panel-indent" id="no-target">
+      <h3 class="heading-small">Your name and organisation</h3>
+      <input type="text" class="form-control" name="name" />
+      <p class='form-hint'>Fill the rest of this form in as if you're the carer. For example, if asked for 'your address' put the address of the person doing the caring.</p>
+    </fieldset>
+
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}

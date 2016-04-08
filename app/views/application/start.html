@@ -1,0 +1,34 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large"> Before you start </h1>
+
+  <p>When you claim Carer's Allowance the person you care for may stop getting:</p>
+  <ul class="list list-bullet">
+    <li>a severe disability premium paid with their benefits, if they get one</li>
+    <li>an extra amount for severe disability paid with Pension Credit, if they get one</li>
+    <li>reduced Council Tax, if their <a href="#">local council</a> offers it
+  </ul>
+
+  <p>Read more about <a href="#">how Carer's Allowance affects other benefits</a>
+
+  <p>You must tell the person you care for before you claim.</p>
+
+  <form action="thirdParty" method="post" class="form" id="theForm">
+
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="I agree - start my application" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}
