@@ -1,6 +1,7 @@
 var path = require('path'),
     express = require('express'),
     nunjucks = require('express-nunjucks'),
+    def_routes = require(__dirname + '/lib/default-routes.js'),
     routes = require(__dirname + '/app/routes.js'),
     favicon = require('serve-favicon'),
     app = express(),
@@ -17,6 +18,8 @@ var path = require('path'),
     password = process.env.PASSWORD,
     env      = process.env.NODE_ENV || 'development',
     useAuth  = process.env.USE_AUTH || config.useAuth;
+
+
 
     env      = env.toLowerCase();
     useAuth  = useAuth.toLowerCase();
@@ -72,30 +75,9 @@ if (typeof(routes) != "function"){
   console.log("Warning: the use of bind in routes is deprecated - please check the prototype kit documentation for writing routes.")
   routes.bind(app);
 } else {
+  app.use("/", def_routes);
   app.use("/", routes);
 }
-
-// auto render any view that exists
-app.get(/^\/([^.]+)$/, function (req, res) {
-
-  var path = (req.params[0]);
-
-  res.render(path, function(err, html) {
-    if (err) {
-      res.render(path + "/index", function(err2, html) {
-        if (err2) {
-          console.log(err);
-          res.status(404).send(err + "<br>" + err2);
-        } else {
-          res.end(html);
-        }
-      });
-    } else {
-      res.end(html);
-    }
-  });
-
-});
 
 console.log("\nGOV.UK Prototype kit v" + releaseVersion);
 // Display warning not to use kit for production services.
