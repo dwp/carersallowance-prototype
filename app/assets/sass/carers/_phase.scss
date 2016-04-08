@@ -1,0 +1,17 @@
+.phase-banner .phase-tag,
+.proposition-phase-tag {
+  color:white;
+  font-size: 16px;
+  font-weight:700;
+  font-family: "nta", Arial, sans-serif;
+  text-transform:uppercase;
+  background-color:$beta-colour;
+  padding: 2px 5px 0;
+}
+.proposition-phase-tag {
+  position:relative; top:-2px; left:10px;
+}
+.phase-banner {
+  border-bottom:1px solid $grey-2;
+  p { margin:10px 0 8px; }
+}
