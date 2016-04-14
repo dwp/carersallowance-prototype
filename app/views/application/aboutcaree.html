@@ -1,0 +1,127 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large" id="thirdparty">
+    About the person you care for
+  </h1>
+
+  <form action="careyougive" method="post" class="form" id="theForm">
+
+    <!-- Title -->
+    <div class="form-group">
+      <label class="form-label-bold" for="title" id="title-label">Title</label>
+      <input class="form-control" id="title" name="you-title" type="text" aria-required="true">
+    </div>
+
+    <!-- First -->
+    <div class="form-group">
+      <label class="form-label-bold" for="firstname" id="firstname-label">First name</label>
+      <input class="form-control" id="firstname" name="you-firstname" type="text" aria-required="true">
+    </div>
+
+    <!-- Middle -->
+    <div class="form-group">
+      <label class="form-label-bold" for="middlename" id="middlename-label">Middle name</label>
+      <input class="form-control" id="middlename" name="you-middlename" type="text" aria-required="true">
+    </div>
+
+    <!-- Last -->
+    <div class="form-group">
+      <label class="form-label-bold" for="lastname" id="lastname-label">Last name</label>
+      <input class="form-control" id="lastname" name="you-lastname" type="text" aria-required="true">
+    </div>
+
+    <!-- Other Last -->
+    <div class="form-group">
+      <label class="form-label-bold" for="otherlastname" id="otherlastname-label">Other surname or maiden name (optional)</label>
+      <input class="form-control" id="otherlastname" name="you-otherlastname" type="text" aria-required="true">
+    </div>
+
+    <!-- NINO -->
+    <div class="form-group">
+      <label class="form-label-bold" for="nino" id="nino-label">National Insurance Number</label>
+      <p class="form-hint">For example, VO 12 34 56 D</p>
+      <input class="form-control" id="nino" name="you-nino" type="text" aria-required="true">
+    </div>
+
+    <!-- DOB -->
+    <fieldset class="form-group">
+      <legend class="heading-small" style="margin-bottom:5px">Date of birth</legend>
+      <div class="form-date">
+        <div class="form-group form-group-day">
+          <label for="dob-day">Day</label>
+          <input type="text" class="form-control" id="dob-day" name="work-dob-day">
+        </div>
+        <div class="form-group form-group-month">
+          <label for="dob-month">Month</label>
+          <input type="text" class="form-control" id="dob-month" name="work-dob-month">
+        </div>
+        <div class="form-group form-group-year">
+          <label for="dob-year">Year</label>
+          <input type="text" class="form-control" id="dob-year" name="work-dob-year">
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Relationship -->
+    <div class="form-group">
+      <label class="form-label-bold" for="relationship" id="relationship-label">What's their relationship to you?</label>
+      <p class="form-hint">For example, Father, Mother, Son, Daughter</p>
+      <input class="form-control" id="relationship" name="you-relationship" type="text" aria-required="true">
+    </div>
+
+    <!-- Same address? -->
+    <fieldset class="form-group inline">
+      <h2 class="heading-small">Do they live at the same address as you?</h2>
+      <label class="block-label" for="sameaddress-yes">
+        <input id="sameaddress-yes" type="radio" name="sameaddress" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="sameaddress-no" data-target="caree-address">
+        <input id="sameaddress-no" type="radio" name="sameaddress" value="No">
+        No
+      </label>
+    </fieldset>
+
+    <!-- ADDRESS -->
+    <div class="form-group js-hidden panel" id="caree-address">
+      <fieldset>
+        <h2 class="heading-small">Their address</h2>
+        <div class="form-group two-tier">
+          <label class="form-label" for="address1">Building or Street</label>
+          <input type="text" id="address1" name="address1" value="" class="form-control">
+          <label class="form-label hidden" for="address2" style="position:absolute;left:-999px">Building or Street line 2</label>
+          <input type="text" id="address2" name="address2" value="" class="form-control second-level" style="margin-top:8px">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="address3">Town or City</label>
+          <input type="text" id="address3" name="address3" value="" class="form-control">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="address4">County</label>
+          <input type="text" id="address4" name="address4" value="" class="form-control">
+        </div>
+        <div>
+          <label class="form-label" for="postCode">Postcode</label>
+          <input type="text" id="postCode" name="postCode" value="" class="form-control">
+        </div>
+      </fieldset>
+    </div>
+
+
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}

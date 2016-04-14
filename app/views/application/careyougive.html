@@ -1,0 +1,77 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large" id="thirdparty">
+    The care you give
+  </h1>
+
+  <form action="thirdParty" method="post" class="form" id="theForm">
+
+    <!-- 35 horus or more? -->
+    <fieldset class="form-group inline">
+      <h2 class="heading-medium">Do you spend 35 hours or more each week caring for this person?</h2>
+      <label class="block-label" for="hourscaring-yes">
+        <input id="hourscaring-yes" type="radio" name="hourscaring" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="hourscaring-no" data-target="caree-address">
+        <input id="hourscaring-no" type="radio" name="hourscaring" value="No">
+        No
+      </label>
+    </fieldset>
+
+    <!-- hospital stay? -->
+    <fieldset class="form-group inline">
+      <h2 class="heading-medium">Since 16 October 2015, have you or the person you look after had to stay in hospital?</h2>
+      <label class="block-label" for="hospital-yes" data-target="notthirtyfive">
+        <input id="hospital-yes" type="radio" name="hospital" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="hospital-no" data-target="not-cared">
+        <input id="hospital-no" type="radio" name="hospital" value="No">
+        No
+      </label>
+    </fieldset>
+
+    <!-- not cared? -->
+    <fieldset class="form-group inline js-hidden panel" id="not-cared">
+      <h2 class="heading-medium">Since 16 October 2015, have there been any weeks you’ve not been able to give 35 hours of care?</h2>
+      <label class="block-label" for="hospital-yes">
+        <input id="hospital-yes" type="radio" name="hospital" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="hospital-no">
+        <input id="hospital-no" type="radio" name="hospital" value="No">
+        No
+      </label>
+    </fieldset>
+
+    <!-- not 35 hours? -->
+    <fieldset class="form-group inline js-hidden panel" id="notthirtyfive">
+      <h2 class="heading-medium">Apart from times in hospital, since 16 October 2015, have there been any weeks you’ve not been able to give 35 hours of care?</h2>
+      <label class="block-label" for="hospital-yes">
+        <input id="hospital-yes" type="radio" name="hospital" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="hospital-no">
+        <input id="hospital-no" type="radio" name="hospital" value="No">
+        No
+      </label>
+    </fieldset>
+
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}
