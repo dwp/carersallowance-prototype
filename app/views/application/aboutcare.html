@@ -1,0 +1,52 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large" id="thirdparty">
+    About the care you provide
+  </h1>
+
+  <form action="timeabroad" method="post" class="form" id="theForm">
+
+    <h2 class="heading-medium">Contact details of the person you care for</h2>
+
+    <!-- ADDRESS -->
+    <div class="form-group address-updated">
+      <fieldset>
+        <legend class="form-label-bold main">Address</legend>
+        <div class="form-group two-tier">
+          <label class="form-label" for="address1">Building or Street</label>
+          <input type="text" id="address1" name="address1" value="" class="form-control">
+          <label class="form-label hidden" for="address2" style="position:absolute;left:-999px">Building or Street line 2</label>
+          <input type="text" id="address2" name="address2" value="" class="form-control second-level" style="margin-top:8px">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="address3">Town or City</label>
+          <input type="text" id="address3" name="address3" value="" class="form-control">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="address4">County</label>
+          <input type="text" id="address4" name="address4" value="" class="form-control">
+        </div>
+        <div>
+          <label class="form-label" for="postCode">Postcode</label>
+          <input type="text" id="postCode" name="postCode" value="" class="form-control">
+        </div>
+      </fieldset>
+    </div>
+
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}

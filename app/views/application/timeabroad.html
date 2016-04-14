@@ -1,0 +1,102 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large" id="thirdparty">
+    About your nationality and where you live
+  </h1>
+
+  <form action="aboutpartner" method="post" class="form" id="theForm">
+
+    <!-- Are you British? -->
+    <fieldset class="form-group">
+      <legend class="heading-medium">What's your nationality?</legend>
+      <label class="block-label" for="radio-yes">
+        <input id="radio-yes" type="radio" name="radio-inline-group" value="Yes">
+        British
+      </label>
+      <label class="block-label" for="radio-no" data-target="nat-target">
+        <input id="radio-no" type="radio" name="radio-inline-group" value="No">
+        Another nationality
+      </label>
+    </fieldset>
+
+    <!-- Other Nationality -->
+    <div class="form-group panel js-hidden" id="nat-target">
+      <label class="form-label-bold" for="title" id="title-label">Your nationality</label>
+      <input class="form-control" id="title" name="you-title" type="text" aria-required="true">
+    </div>
+
+    <!-- Always lived in UK? -->
+    <fieldset class="form-group inline">
+      <legend class="heading-medium">Have you always lived in England, Scotland or Wales?</legend>
+      <label class="block-label" for="alwaysuk-yes">
+        <input id="alwaysuk-yes" type="radio" name="alwaysuk" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="alwaysuk-no" data-target="uk-now">
+        <input id="alwaysuk-no" type="radio" name="alwaysuk" value="No">
+        No
+      </label>
+    </fieldset>
+
+    <!-- Always lived in UK? -->
+    <fieldset class="form-group inline js-hidden panel" id="uk-now">
+      <h2 class="heading-small">Do you live in England, Scotland or Wales now?</h2>
+      <label class="block-label" for="uk-now-yes" data-target="uk-arrive">
+        <input id="uk-now-yes" type="radio" name="uk-now" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="uk-now-no">
+        <input id="uk-now-no" type="radio" name="uk-now" value="No">
+        No
+      </label>
+      <!-- When arrive? -->
+      <fieldset class="form-group inline js-hidden panel" id="uk-arrive">
+        <h2 class="heading-small">When did you arrive in England, Scotland or Wales?</h2>
+        <label class="block-label" for="uk-arrive-yes">
+          <input id="uk-arrive-yes" type="radio" name="uk-arrive" value="Yes">
+          Less than 3 years ago
+        </label>
+        <label class="block-label" for="uk-arrive-no" data-target="no-target">
+          <input id="uk-arrive-no" type="radio" name="uk-arrive" value="No">
+          More than 3 years ago
+        </label>
+      </fieldset>
+    </fieldset>
+
+    <!-- Been away? -->
+    <fieldset class="form-group inline" id="uk-arrive">
+      <h2 class="heading-small">Have you been away from England, Scotland or Wales for more than 52 weeks in the 3 years before your claim date?</h2>
+      <p class="hint">This could be one trip, or a number of trips adding up to 52 week.</p>
+      <label class="block-label" for="been-away-yes" data-target="where-when">
+        <input id="been-away-yes" type="radio" name="been-away" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="been-away-no">
+        <input id="been-away-no" type="radio" name="been-away" value="No">
+        No
+      </label>
+      <!-- Title -->
+      <div class="form-group js-hidden panel" id="where-when">
+        <h2 class="form-label-bold" for="title" id="title-label">Where and when did you go away?</h2>
+        <p class="form-hint">List all your trips abroad in the last 3 years, including the dates you went and came back.</p>
+        <textarea class="form-control" id="title" name="you-title" style="width:100%" rows="5" aria-required="true"></textarea>
+      </div>
+    </fieldset>
+
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}

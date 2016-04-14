@@ -1,0 +1,134 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large" id="thirdparty">
+    About your partner
+  </h1>
+
+  <form action="thirdParty" method="post" class="form" id="theForm">
+
+    <p>We look at any money your partner gets from benefits when we work out if you can get Carer's Allowance. <a href="#">Find out more</a></p>
+
+    <!-- Always lived in UK? -->
+    <fieldset class="form-group inline">
+      <h2 class="heading-medium">Have you lived with a partner at any time since your claim date?</h2>
+      <p>Your claim date is 11 July 2012. By partner we mean:</p>
+      <ul class="list list-bullet">
+        <li>a person you are married to or live with as if you are married.</li>
+        <li>a civil partner or a person you live with as if you are civil partners.</li>
+      </ul>
+      <label class="block-label" for="withpartner-yes" data-target="about-partner">
+        <input id="withpartner-yes" type="radio" name="withpartner" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="withpartner-no">
+        <input id="withpartner-no" type="radio" name="withpartner" value="No">
+        No
+      </label>
+    </fieldset>
+
+    <!-- About partner -->
+    <div class="form-group js-hidden panel" id="about-partner">
+
+      <!-- Title -->
+      <div class="form-group">
+        <label class="form-label-bold" for="title" id="title-label">Title</label>
+        <input class="form-control" id="title" name="you-title" type="text" aria-required="true">
+      </div>
+
+      <!-- First -->
+      <div class="form-group">
+        <label class="form-label-bold" for="firstname" id="firstname-label">First name</label>
+        <input class="form-control" id="firstname" name="you-firstname" type="text" aria-required="true">
+      </div>
+
+      <!-- Middle -->
+      <div class="form-group">
+        <label class="form-label-bold" for="middlename" id="middlename-label">Middle name</label>
+        <input class="form-control" id="middlename" name="you-middlename" type="text" aria-required="true">
+      </div>
+
+      <!-- Last -->
+      <div class="form-group">
+        <label class="form-label-bold" for="lastname" id="lastname-label">Last name</label>
+        <input class="form-control" id="lastname" name="you-lastname" type="text" aria-required="true">
+      </div>
+
+      <!-- Other Last -->
+      <div class="form-group">
+        <label class="form-label-bold" for="otherlastname" id="otherlastname-label">Other surname or maiden name (optional)</label>
+        <input class="form-control" id="otherlastname" name="you-otherlastname" type="text" aria-required="true">
+      </div>
+
+      <!-- NINO -->
+      <div class="form-group">
+        <label class="form-label-bold" for="nino" id="nino-label">National Insurance Number</label>
+        <p class="form-hint">For example, VO 12 34 56 D</p>
+        <input class="form-control" id="nino" name="you-nino" type="text" aria-required="true">
+      </div>
+
+      <!-- DOB -->
+      <fieldset class="form-group">
+        <legend class="heading-small" style="margin-bottom:5px">Date of birth</legend>
+        <div class="form-date">
+          <div class="form-group form-group-day">
+            <label for="dob-day">Day</label>
+            <input type="text" class="form-control" id="dob-day" name="work-dob-day">
+          </div>
+          <div class="form-group form-group-month">
+            <label for="dob-month">Month</label>
+            <input type="text" class="form-control" id="dob-month" name="work-dob-month">
+          </div>
+          <div class="form-group form-group-year">
+            <label for="dob-year">Year</label>
+            <input type="text" class="form-control" id="dob-year" name="work-dob-year">
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Separated? -->
+      <fieldset class="form-group inline">
+        <h2 class="heading-small">Have you separated since your claim date?</h2>
+        <p class="form-hint">Your claim date is 11 July 2012</p>
+        <label class="block-label" for="separated-yes">
+          <input id="separated-yes" type="radio" name="separated" value="Yes">
+          Yes
+        </label>
+        <label class="block-label" for="separated-no">
+          <input id="separated-no" type="radio" name="separated" value="No">
+          No
+        </label>
+      </fieldset>
+
+      <!-- Is this the caree? -->
+      <fieldset class="form-group inline">
+        <h2 class="heading-small">Is this the person you care for?</h2>
+        <label class="block-label" for="caree-yes">
+          <input id="caree-yes" type="radio" name="caree" value="Yes">
+          Yes
+        </label>
+        <label class="block-label" for="caree-no">
+          <input id="caree-no" type="radio" name="caree" value="No">
+          No
+        </label>
+      </fieldset>
+
+    </div>
+
+
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}

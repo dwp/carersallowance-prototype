@@ -1,0 +1,77 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large" id="thirdparty">
+    About you - the carer
+  </h1>
+
+  <form action="aboutcare" method="post" class="form" id="theForm">
+
+    <h2 class="heading-medium">Your details</h2>
+
+    <!-- Title -->
+    <div class="form-group">
+      <label class="form-label-bold" for="title" id="title-label">Title</label>
+      <input class="form-control" id="title" name="you-title" type="text" aria-required="true">
+    </div>
+
+    <!-- First -->
+    <div class="form-group">
+      <label class="form-label-bold" for="firstname" id="firstname-label">First name</label>
+      <input class="form-control" id="firstname" name="you-firstname" type="text" aria-required="true">
+    </div>
+
+    <!-- Middle -->
+    <div class="form-group">
+      <label class="form-label-bold" for="middlename" id="middlename-label">Middle name</label>
+      <input class="form-control" id="middlename" name="you-middlename" type="text" aria-required="true">
+    </div>
+
+    <!-- Last -->
+    <div class="form-group">
+      <label class="form-label-bold" for="lastname" id="lastname-label">Last name</label>
+      <input class="form-control" id="lastname" name="you-lastname" type="text" aria-required="true">
+    </div>
+
+    <!-- NINO -->
+    <div class="form-group">
+      <label class="form-label-bold" for="nino" id="nino-label">National Insurance Number</label>
+      <p class="form-hint">For example, VO 12 34 56 D</p>
+      <input class="form-control" id="nino" name="you-nino" type="text" aria-required="true">
+    </div>
+
+    <!-- DOB -->
+    <fieldset class="form-group">
+      <legend class="heading-small" style="margin-bottom:5px">Date of birth</legend>
+      <div class="form-date">
+        <div class="form-group form-group-day">
+          <label for="dob-day">Day</label>
+          <input type="text" class="form-control" id="dob-day" name="work-dob-day">
+        </div>
+        <div class="form-group form-group-month">
+          <label for="dob-month">Month</label>
+          <input type="text" class="form-control" id="dob-month" name="work-dob-month">
+        </div>
+        <div class="form-group form-group-year">
+          <label for="dob-year">Year</label>
+          <input type="text" class="form-control" id="dob-year" name="work-dob-year">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}
