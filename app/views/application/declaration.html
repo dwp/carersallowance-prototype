@@ -1,0 +1,57 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large">
+    Declaration
+  </h1>
+
+  <form action="thankyou" method="post" class="form" id="theForm">
+
+    <!-- bank account? -->
+    <fieldset class="form-group inline" style="margin-top:30px;">
+      <legend class="heading-medium">Can the Carer's Allowance Unit contact anyone mentioned in this claim?</legend>
+      <label class="block-label" for="contacts-yes">
+        <input id="contacts-yes" type="radio" name="contacts" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="contacts-no" data-target="no-contact">
+        <input id="contacts-no" type="radio" name="contacts" value="No">
+        No
+      </label>
+      <!-- Not contact list -->
+      <fieldset class="form-group panel js-hidden" id="no-contact" style="margin-top:10px;">
+        <h2 class="form-label-bold" for="nocontact-list" id="nocontact-list-label">List anyone you don't want to be contacted and say why.</h2>
+        <textarea class="form-control" id="nocontact-list" name="nocontact-list" style="width:100%" rows="5" aria-required="true"></textarea>
+        <p class="form-hint">300 characters left</p>
+      </fieldset>
+    </fieldset>
+
+    <div class="form-group" style="margin-bottom:0;">
+      <h2 class="heading-medium" style="margin-top:0">By sending this application you agree that:</h2>
+      <ul class="list list-bullet">
+        <li>the information you've given is complete and correct as far as you know</li>
+        <li>you'll pay back any money you've been overpaid if you're asked to</li>
+        <li>you'll report changes to your circumstances or those of the person you care for promptly - either <a href="#">online</a> or by contacting <a href="#">the Carer's Allowance Unit</a></li>
+      </ul>
+    </div>
+
+    <div class="form-group application-notice help-notice">
+      <p style="font-weight:700;">You could be prosecuted or have to pay a penalty if you deliberately give wrong or incomplete information or don't report changes. Your Carer's Allowance may also be stopped or reduced.</p>
+    </div>
+
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="I agree - send my application" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}

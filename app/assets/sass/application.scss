@@ -38,6 +38,14 @@
   }
 }
 
+.box {
+  border:1px solid $grey-2;
+  padding:10px 30px 10px;
+  margin-bottom:30px;
+}
+
 // Add extra styles here, or re-organise the Sass files in whichever way makes most sense to you
 @import 'carers/intro';
 @import 'carers/phase';
+@import 'carers/notice';
+@import 'carers/completion';
