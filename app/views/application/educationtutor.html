@@ -1,0 +1,101 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large">
+    Education
+  </h1>
+
+  <form action="income" method="post" class="form" id="theForm">
+
+    <!-- Time started -->
+    <fieldset class="form-group inline">
+      <legend class="heading-medium" style="margin-bottom:0;">Have you been on a course of education since your claim date?</legend>
+      <p class="form-hint">Select 'yes' if you're on holiday or on temporary leave from a course.</p>
+      <label class="block-label" for="course-yes" data-target="course">
+        <input id="course-yes" type="radio" name="course" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="course-no">
+        <input id="course-no" type="radio" name="course" value="No">
+        No
+      </label>
+    </fieldset>
+
+    <fieldset class="form-group panel js-hidden" id="course" style="margin-bottom:60px;">
+      <!-- Title -->
+      <div class="form-group">
+        <label class="form-label-bold" for="title" id="title-label">Course title</label>
+        <input class="form-control" id="title" name="course-title" type="text" aria-required="true">
+      </div>
+      <!-- School -->
+      <div class="form-group">
+        <label class="form-label-bold" for="school" id="school-label">Name of school, college or university</label>
+        <input class="form-control" id="school" name="course-school" type="text" aria-required="true">
+      </div>
+      <!-- Teacher -->
+      <div class="form-group">
+        <label class="form-label-bold" for="teacher" id="teacher-label">Name of main teacher or tutor</label>
+        <input class="form-control" id="teacher" name="course-teacher" type="text" aria-required="true">
+      </div>
+      <!-- Teacher conact -->
+      <div class="form-group">
+        <label class="form-label-bold" for="teacher-contact" id="teacher-contact-label">Tutor contact number (optional)</label>
+        <p class="form-hint">Please include if you know the number for your tutor</p>
+        <input class="form-control" id="teacher-contact" name="course-teacher-contact" type="text" aria-required="true">
+      </div>
+      <!-- Date started -->
+      <fieldset class="form-group">
+        <legend class="form-label-bold" style="margin-bottom:5px">When did you start the course?</legend>
+        <p class="form-hint">For example, 30 9 2014</p>
+        <div class="form-date">
+          <div class="form-group form-group-day">
+            <label for="dob-day">Day</label>
+            <input type="text" class="form-control" id="dob-day" name="course-start-day">
+          </div>
+          <div class="form-group form-group-month">
+            <label for="dob-month">Month</label>
+            <input type="text" class="form-control" id="dob-month" name="course-start-month">
+          </div>
+          <div class="form-group form-group-year">
+            <label for="dob-year">Year</label>
+            <input type="text" class="form-control" id="dob-year" name="course-start-year">
+          </div>
+        </div>
+      </fieldset>
+      <!-- Date end -->
+      <fieldset class="form-group">
+        <legend class="form-label-bold" style="margin-bottom:5px">When did the course end or when will you finish?</legend>
+        <p class="form-hint">For example, 30 9 2014</p>
+        <div class="form-date">
+          <div class="form-group form-group-day">
+            <label for="dob-day">Day</label>
+            <input type="text" class="form-control" id="dob-day" name="course-end-day">
+          </div>
+          <div class="form-group form-group-month">
+            <label for="dob-month">Month</label>
+            <input type="text" class="form-control" id="dob-month" name="course-end-month">
+          </div>
+          <div class="form-group form-group-year">
+            <label for="dob-year">Year</label>
+            <input type="text" class="form-control" id="dob-year" name="course-end-year">
+          </div>
+        </div>
+      </fieldset>
+    </fieldset>
+
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}

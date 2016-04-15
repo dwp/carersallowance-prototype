@@ -1,0 +1,144 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large">
+    The care you give
+  </h1>
+
+  <form action="educationtutor" method="post" class="form" id="theForm">
+
+    <p>Give details of any times you couldn't care for 35 hours a week - you could still be paid for this time.</p>
+
+    <!-- Date started -->
+    <fieldset class="form-group">
+      <legend class="heading-medium" style="margin-bottom:5px">Date started</legend>
+      <p class="form-hint">For example, 30 9 2014</p>
+      <div class="form-date">
+        <div class="form-group form-group-day">
+          <label for="dob-day">Day</label>
+          <input type="text" class="form-control" id="dob-day" name="work-dob-day">
+        </div>
+        <div class="form-group form-group-month">
+          <label for="dob-month">Month</label>
+          <input type="text" class="form-control" id="dob-month" name="work-dob-month">
+        </div>
+        <div class="form-group form-group-year">
+          <label for="dob-year">Year</label>
+          <input type="text" class="form-control" id="dob-year" name="work-dob-year">
+        </div>
+      </div>
+    </fieldset>
+
+    <!-- Time started -->
+    <fieldset class="form-group inline">
+      <legend class="heading-medium">Time started</legend>
+      <label class="block-label" for="hours-caring-yes">
+        <input id="hours-caring-yes" type="radio" name="hours-caring" value="Yes">
+        Before 11am
+      </label>
+      <label class="block-label" for="hours-caring-no" data-target="caree-address">
+        <input id="hours-caring-no" type="radio" name="hours-caring" value="No">
+        After 11am
+      </label>
+    </fieldset>
+
+    <!-- Ended? -->
+    <fieldset class="form-group inline">
+      <legend class="heading-medium">Had this ended?</legend>
+      <label class="block-label" for="ended-yes" data-target="date-ended">
+        <input id="ended-yes" type="radio" name="ended" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="ended-no" data-target="caree-address">
+        <input id="ended-no" type="radio" name="ended" value="No">
+        No
+      </label>
+    </fieldset>
+
+    <!-- Date ended -->
+    <fieldset class="form-group js-hidden panel" id="date-ended">
+      <h2 class="heading-medium" style="margin-bottom:5px">Date ended</h2>
+      {# <p class="form-hint">For example, 30 9 2014</p> #}
+      <div class="form-group form-date">
+        <div class="form-group form-group-day">
+          <label for="dob-day">Day</label>
+          <input type="text" class="form-control" id="dob-day" name="work-dob-day">
+        </div>
+        <div class="form-group form-group-month">
+          <label for="dob-month">Month</label>
+          <input type="text" class="form-control" id="dob-month" name="work-dob-month">
+        </div>
+        <div class="form-group form-group-year">
+          <label for="dob-year">Year</label>
+          <input type="text" class="form-control" id="dob-year" name="work-dob-year">
+        </div>
+      </div>
+      <div class="form-group">
+        <legend class="heading-medium">Time ended?</legend>
+        <label class="block-label" for="timeended-yes">
+          <input id="timeended-yes" type="radio" name="timeended" value="Yes">
+          Before 11am
+        </label>
+        <label class="block-label" for="timeended-no" data-target="caree-address">
+          <input id="timeended-no" type="radio" name="timeended" value="No">
+          After 11am
+        </label>
+      </div>
+    </fieldset>
+
+    <!-- In hospital? -->
+    <fieldset class="form-group inline">
+      <legend class="heading-medium">Were you or the person you care for in hospital during this time?</legend>
+      <label class="block-label" for="inhospital-yes">
+        <input id="inhospital-yes" type="radio" name="inhospital" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="inhospital-no" data-target="medprof">
+        <input id="inhospital-no" type="radio" name="inhospital" value="No">
+        No
+      </label>
+    </fieldset>
+
+    <!-- Medical professional? -->
+    <fieldset class="form-group inline js-hidden panel" id="medprof">
+      <h2 class="heading-medium">Were you or the person you care for looked after by a medical professional during this time?</h2>
+      <label class="block-label" for="medprof-yes">
+        <input id="medprof-yes" type="radio" name="medprof" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="medprof-no" data-target="">
+        <input id="medprof-no" type="radio" name="medprof" value="No">
+        No
+      </label>
+    </fieldset>
+
+    <!-- Couldn't care? -->
+    <fieldset class="form-group inline">
+      <legend class="heading-medium">Were there any other times you couldn't care for 35 hours a week?</legend>
+      <label class="block-label" for="couldntcare-yes">
+        <input id="couldntcare-yes" type="radio" name="couldntcare" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="couldntcare-no" data-target="">
+        <input id="couldntcare-no" type="radio" name="couldntcare" value="No">
+        No
+      </label>
+    </fieldset>
+
+
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}

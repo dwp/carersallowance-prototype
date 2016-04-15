@@ -1,0 +1,25 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large">
+    Check your answers
+  </h1>
+
+  <form action="educationtutor" method="post" class="form" id="theForm">
+
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}

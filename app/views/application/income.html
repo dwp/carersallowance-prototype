@@ -1,0 +1,81 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large">
+    Your income
+  </h1>
+
+  <form action="yourincome" method="post" class="form" id="theForm">
+
+    <!-- In employment -->
+    <fieldset class="form-group inline">
+      <legend class="form-label-bold">Have you been in employment since 16 October 2015?</legend>
+      <label class="block-label" for="employed-yes" data-target="employed">
+        <input id="employed-yes" type="radio" name="employed" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="employed-no">
+        <input id="employed-no" type="radio" name="employed" value="No">
+        No
+      </label>
+    </fieldset>
+
+    <!-- self employed -->
+    <fieldset class="form-group inline">
+      <legend class="form-label-bold">Have you been in self-employment since 9 March 2016?</legend>
+      <label class="block-label" for="self-employed-yes" data-target="self-employed">
+        <input id="self-employed-yes" type="radio" name="self-employed" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="self-employed-no">
+        <input id="self-employed-no" type="radio" name="self-employed" value="No">
+        No
+      </label>
+    </fieldset>
+
+    <!-- Other income -->
+    <fieldset class="form-group">
+      <legend class="form-label-bold">What other income have you had since 16 March 2016?</legend>
+      <p class="form-hint">Choose all that apply to you.</p>
+      <label class="block-label" for="other-income-sick">
+        <input id="other-income-sick" type="checkbox" name="other-income" value="sick">
+        Statutory sick pay
+      </label>
+      <label class="block-label" for="other-income-maternity">
+        <input id="other-income-maternity" type="checkbox" name="other-income" value="maternity">
+        Statutory paternity, maternity or adoption pay
+      </label>
+      <label class="block-label" for="other-income-fostering">
+        <input id="other-income-fostering" type="checkbox" name="other-income" value="fostering">
+        Fostering Allowance
+      </label>
+      <label class="block-label" for="other-income-direct">
+        <input id="other-income-direct" type="checkbox" name="other-income" value="direct">
+        Direct payment for caring for someone
+      </label>
+      <label class="block-label" for="other-income-other">
+        <input id="other-income-other" type="checkbox" name="other-income" value="other">
+        Any other income, eg rental income
+      </label>
+      <label class="block-label" for="other-income-none">
+        <input id="other-income-none" type="checkbox" name="other-income" value="none">
+        None of these
+      </label>
+    </fieldset>
+
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}

@@ -1,0 +1,85 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large">
+    Pay details
+  </h1>
+
+  <form action="checkanswers" method="post" class="form" id="theForm">
+
+    <p>Carer's Allowance is paid every week, every 4 weeks or every thirteen weeks, normally on Monday. <a href="#">Accounts you can use to get paid</a></p>
+
+    <!-- bank account -->
+    <fieldset class="form-group inline">
+      <legend class="form-label-bold">Do you have a bank account?</legend>
+      <label class="block-label" for="bankaccount-yes">
+        <input id="bankaccount-yes" type="radio" name="bankaccount" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="bankaccount-no" data-target="no-bank">
+        <input id="bankaccount-no" type="radio" name="bankaccount" value="No">
+        No
+      </label>
+    </fieldset>
+
+    <div id="no-bank" class="form-group error js-hidden" style="border:5px solid #b10e1e; padding:15px">You can carry on without giving bank details, but you'll need an account if your claim's successful.</div>
+
+    <fieldset class="form-group panel">
+      <h2 class="heading-medium">Bank/Building Society details</h2>
+      <!-- Account holder -->
+      <div class="form-group">
+        <label class="form-label-bold" for="holder" id="holder-label">Name of account holder</label>
+        <input class="form-control" id="holder" name="bank-holder" type="text" aria-required="true">
+      </div>
+      <!-- Account holder -->
+      <div class="form-group">
+        <label class="form-label-bold" for="bankname" id="bankname-label">Full name of bank or building society</label>
+        <input class="form-control" id="bankname" name="bank-bankname" type="text" aria-required="true">
+      </div>
+      <!-- Sort code -->
+      <div class="form-group">
+        <label class="form-label-bold" for="sortcode" id="sortcode-label">Sort code</label>
+        <input class="form-control" style="width:15%;margin-right:10px" id="sortcode" name="bank-sortcode-one" type="text" aria-required="true">
+        <input class="form-control" style="width:15%;margin-right:10px" id="sortcode" name="bank-sortcode-two" type="text" aria-required="true">
+        <input class="form-control" style="width:15%;margin-right:10px" id="sortcode" name="bank-sortcode-tre" type="text" aria-required="true">
+      </div>
+      <!-- ref num -->
+      <div class="form-group">
+        <label class="form-label-bold" for="refnum" id="refnum-label">Building society roll or reference number (optional)</label>
+        <input class="form-control" id="refnum" name="bank-refnum" type="text" aria-required="true">
+      </div>
+      <!-- bank account -->
+      <div class="form-group">
+        <legend class="form-label-bold">How often do you want to get paid?</legend>
+        <label class="block-label" for="howoften-week">
+          <input id="howoften-week" type="radio" name="howoften" value="Yes">
+          Every week
+        </label>
+        <label class="block-label" for="howoften-fourweeks">
+          <input id="howoften-fourweeks" type="radio" name="howoften" value="Yes">
+          Every four weeks
+        </label>
+        <label class="block-label" for="howoften-13weeks">
+          <input id="howoften-13weeks" type="radio" name="howoften" value="Yes">
+          Every thirteen weeks
+        </label>
+      </div>
+    </fieldset>
+
+
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}
