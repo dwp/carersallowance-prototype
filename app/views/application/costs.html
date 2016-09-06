@@ -1,0 +1,106 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large">
+    While you're at work do you pay anyone else to look after people you're responsible for?
+  </h1>
+
+  <form action="paydetails" method="get" class="form" id="theForm">
+    <!-- Still working -->
+    <fieldset class="form-group">
+      <p class='form-hint'>Select all that apply.</p>
+      <label class="block-label" for="child" data-target="childminder">
+        <input id="child" type="checkbox" name="child" value="child">
+        You pay a childminder or nursery to look after one or more of your children
+      </label>
+      <label class="block-label" for="pro" data-target="prohelp">
+        <input id="pro" type="checkbox" name="pro" value="pro">
+        You pay for another type of professional care for the person you're caring for
+      </label>
+      <label class="block-label" for="friend" data-target="friendcare">
+        <input id="friend" type="checkbox" name="friend" value="friend">
+        You pay a relation or friend to look after your child or someone you care for
+      </label>
+      <label class="block-label" for="nocare">
+        <input id="nocare" type="checkbox" name="minder" value="none">
+        You don't pay anyone
+      </label>
+    </fieldset>
+    <!-- childminder? -->
+    <div class="form-group js-hidden panel" id="childminder">
+      <h2 class='heading-medium'>Childcare</h2>
+      <p class='form-hint'>This can be for any child, not just one that you want to claim Carer's Allowance for looking after.</p>
+    <fieldset class="form-group">
+      <div class="form-group">
+        <label class="form-label-bold" for="childmindname" id="childmindname-label">Who do you pay?</label>
+        <input class="form-control" id="childmindname" name="childmindname" type="text" aria-required="true">
+      </div>
+      <div class="form-group">
+        <label class="form-label-bold" for="childnames" id="firstname-label">Who do they mind?</label>
+        <p class='form-hint'>Put the names of every child they mind</p>
+        <input class="form-control" id="childnames" name="childnames" type="text" aria-required="true">
+      </div>
+      <div class="form-group">
+        <label class="form-label-bold" for="childmindcost" id="firstname-label">How much do you pay?</label>
+        <p class='form-hint'>Put a total amount and say whether it's each week or month</p>
+        <input class="form-control" id="childmindcost" name="childmindcost" type="text" aria-required="true">
+      </div>
+    </fieldset>
+  </div>
+    <!-- childminder? -->
+    <div class="form-group js-hidden panel" id="prohelp">
+            <h2 class='heading-medium'>Professional care</h2>
+    <fieldset class="form-group">
+      <div class="form-group">
+        <label class="form-label-bold" for="prohelpname" id="firstname-label">Who do you pay?</label><p>This can be a company or individual.</p>
+        <input class="form-control" id="prohelpname" name="prohelpname" type="text" aria-required="true">
+      </div>
+      <div class="form-group">
+        <label class="form-label-bold" for="prohelpcaring" id="prohelpcaring-label">Who do they mind?</label>
+        <p class='form-hint'>Put the names of every child they mind</p>
+        <input class="form-control" id="prohelpcaring" name="prohelpcaring" type="text" aria-required="true">
+      </div>
+      <div class="form-group">
+        <label class="form-label-bold" for="prohelpcost" id="prohelpcost-label">How much do you pay?</label>
+        <p class='form-hint'>Put a total amount and say whether it's each week or month</p>
+        <input class="form-control" id="prohelpcost" name="prohelpcost" type="text" aria-required="true">
+      </div>
+    </fieldset>
+  </div>
+      <!-- friendcare? -->
+    <div class="js-hidden panel" id="friendcare">
+    <fieldset class="form-group">
+      <h2 class='heading-medium'>Other people you pay to care for people</h2>
+      <p class='form-hint'>These can be anyone who looks after your children or another person you care for.</p>
+      <div class="form-group">
+        <label class="form-label-bold" for="friendcarename" id="friendcarename-label">Who do you pay?</label>
+        <input class="form-control" id="friendcarename" name="friendcarename" type="text" aria-required="true">
+      </div>
+      <div class="form-group">
+        <label class="form-label-bold" for="friendcarewho" id="friendcarewho-label">How are you related to them</label>
+        <input class="form-control" id="friendcarewho" name="friendcarewho" type="text" aria-required="true">
+      </div>
+      <div class="form-group">
+        <label class="form-label-bold" for="friendcarecost" id="friendcarecost-label">How much do you pay them?</label>
+        <p class='form-hint'>Put a total amount and say whether it's each week or month</p>
+        <input class="form-control" id="friendcarecost" name="friendcarecost" type="text" aria-required="true">
+      </div>
+    </fieldset>
+  </div>
+
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}

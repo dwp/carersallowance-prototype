@@ -7,42 +7,29 @@
   <!-- BACK LINK -->
   <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
 
-	<!-- HEADING -->
+  <!-- HEADING -->
   <h1 class="form-title heading-large">
     Your income
   </h1>
 
-  <form action="yourincome" method="post" class="form" id="theForm">
+  <form action="aboutwork" method="get" class="form">
 
     <!-- In employment -->
     <fieldset class="form-group inline">
-      <legend class="form-label-bold">Have you been in employment since 16 October 2015?</legend>
-      <label class="block-label" for="employed-yes" data-target="employed">
-        <input id="employed-yes" type="radio" name="employed" value="Yes">
-        Yes
-      </label>
-      <label class="block-label" for="employed-no">
-        <input id="employed-no" type="radio" name="employed" value="No">
-        No
-      </label>
-    </fieldset>
-
-    <!-- self employed -->
-    <fieldset class="form-group inline">
-      <legend class="form-label-bold">Have you been in self-employment since 9 March 2016?</legend>
+      <legend class="form-label-bold">Have you worked in the last 6 months?</legend>
       <label class="block-label" for="self-employed-yes" data-target="self-employed">
-        <input id="self-employed-yes" type="radio" name="self-employed" value="Yes">
+        <input id="self-employed-yes" type="radio" name="worked" value="Yes">
         Yes
       </label>
       <label class="block-label" for="self-employed-no">
-        <input id="self-employed-no" type="radio" name="self-employed" value="No">
+        <input id="self-employed-no" type="radio" name="worked" value="No">
         No
       </label>
     </fieldset>
 
     <!-- Other income -->
     <fieldset class="form-group">
-      <legend class="form-label-bold">What other income have you had since 16 March 2016?</legend>
+      <legend class="form-label-bold">What other income have you had in the last 6 months</legend>
       <p class="form-hint">Choose all that apply to you.</p>
       <label class="block-label" for="other-income-sick">
         <input id="other-income-sick" type="checkbox" name="other-income" value="sick">

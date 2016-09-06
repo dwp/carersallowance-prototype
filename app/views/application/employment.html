@@ -1,0 +1,74 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large">
+    Your income - employment
+  </h1>
+
+  <form action="otherwork" method="post" class="form" id="theForm">
+
+    <!-- When start? -->
+    <fieldset class="form-group inline">
+      <div class="form-group">
+      <label class="form-label-bold" for="employer" id="employer">Name of employer</label>
+      <input class="form-control" id="employer" name="employer" type="text" aria-required="true">
+      </div>
+      <fieldset>
+        <h2 class="heading-small">Address</h2>
+        <div class="form-group two-tier">
+          <label class="form-label" for="address1">Building or street</label>
+          <input type="text" id="address1" name="address1" value="" class="form-control">
+          <label class="form-label hidden" for="address2" style="position:absolute;left:-999px">Street line 2</label>
+          <input type="text" id="address2" name="address2" value="" class="form-control second-level" style="margin-top:8px">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="address3">Town or city</label>
+          <input type="text" id="address3" name="address3" value="" class="form-control">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="address4">County</label>
+          <input type="text" id="address4" name="address4" value="" class="form-control">
+        </div>
+        <div>
+          <label class="form-label" for="postCode">Postcode</label>
+          <input type="text" id="postCode" name="postCode" value="" class="form-control">
+        </div>
+      </fieldset>
+      <h2 class="form-label-bold" style="margin-bottom:5px">When did you start this work?</h2>
+      <div class="form-date form-group">
+        <div class="form-group form-group-day">
+          <label for="workstart-day">Day</label>
+          <input type="text" class="form-control" id="workstart-day" name="workstart-day">
+        </div>
+        <div class="form-group form-group-month">
+          <label for="workstart-month">Month</label>
+          <input type="text" class="form-control" id="workstart-month" name="workstart-month">
+        </div>
+        <div class="form-group form-group-year">
+          <label for="workstart-year">Year</label>
+          <input type="text" class="form-control" id="workstart-year" name="workstart-year">
+        </div>
+      </div>
+      <!-- Paid money? -->
+      <div>
+        <legend class="form-label-bold">How much were you paid?</legend>
+        <input class="form-control" id="employer" name="employer" type="text" aria-required="true">
+      </div>
+    </fieldset>
+
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}

@@ -9,46 +9,45 @@
 
 	<!-- HEADING -->
   <h1 class="form-title heading-large">
-    When do you want {{ serviceName }} to start?
+    When did you start giving regular care?
   </h1>
 
-  <form action="aboutyou" method="post" class="form" id="theForm">
-
-    <p>Most claims can be backdated 3 months. You may be able to <a href="#">backdate it further</a> if the person you care for was awarded their qualifying benefit in the last 3 months.</p>
-
-    <fieldset class="form-group">
-      <legend class="heading-medium" style="margin-bottom:5px">Claim date</legend>
-      <!-- <p>For example, 08 4 2014.</p> -->
-      <div class="form-date">
-        <div class="form-group form-group-day">
-          <label for="dob-day">Day</label>
-          <input type="text" class="form-control" id="dob-day" name="work-dob-day">
-        </div>
-        <div class="form-group form-group-month">
-          <label for="dob-month">Month</label>
-          <input type="text" class="form-control" id="dob-month" name="work-dob-month">
-        </div>
-        <div class="form-group form-group-year">
-          <label for="dob-year">Year</label>
-          <input type="text" class="form-control" id="dob-year" name="work-dob-year">
-        </div>
+  <form action="confirmclaimdate" method="get" class="form" id="theForm">
+        <fieldset class="form-group">
+      <p class='hint-text'>This means giving the person you care for at least 35 hours of care a week, most weeks.</p>
+      <label class="block-label" for="radio-yes" data-target="startdate">
+        <input id="radio-yes" type="radio" name="radio-inline-group" value="three">
+        In the last 3 months
+      </label>
+      <label class="block-label" for="radio-no" data-target="startdate">
+        <input id="radio-no" type="radio" name="radio-inline-group" value="six">
+        In the last 6 months
+      </label>
+      <label class="block-label" for="radio-long">
+        <input id="radio-long" type="radio" name="radio-inline-group" value="longer">
+        Over a year ago
+      </label>
+    </fieldset>
+    <!-- <p>Most claims can be backdated 3 months. You may be able to <a href="#">backdate it further</a> if the person you care for was awarded a backdated qualifying benefit in the last 3 months.</p>
+    <details>
+      <summary><span class="summary">Backdating more than 3 months</span></summary>
+      <div class="panel-indent">
+        <p>If the person has been awarded a backdated qualifying benefit in the last 3 months you can claim Carer's Allowance from the date their benefit started.</p>
+        <h3>For example</h3>
+        <p>You start to care for someone (35 hours or more) on January 1, 2016.</p>
+        <p>They apply for Attendance Allowance in February, and are given the benefit in March, backdated to January 15.</p>
+        <p>You apply for Carer's Allowance in May.</p>
+        <p>Your claim can be backdated to January 15, even though it's more than 3 months ago, as:</p>
+        <ul class>
+          <li>you were caring for them at the time</li>
+          <li>they should have been receiving Attendance Allowance at the time</li>
+        <p>
       </div>
-    </fieldset>
-
-    <fieldset class="form-group inline">
-      <legend class="heading-medium">Were you caring for this person for more than 35 hours a week before this date?</legend>
-      <label class="block-label" for="radio-yes" data-target="no-target">
-        <input id="radio-yes" type="radio" name="radio-inline-group" value="Yes">
-        Yes
-      </label>
-      <label class="block-label" for="radio-no">
-        <input id="radio-no" type="radio" name="radio-inline-group" value="No">
-        No
-      </label>
-    </fieldset>
-
-    <fieldset class="form-group js-hidden panel" id="no-target">
-      <h2 class="heading-medium" style="margin-bottom:5px">When did you begin caring?</h2 >
+    </details>
+    -->
+    <fieldset  class="form-group js-hidden panel" id="startdate">
+      <legend class="heading-medium" style="margin-bottom:5px">What date did you start giving 35 hours of care a week?</legend>
+      <!-- <p>For example, 08 4 2014.</p> -->
       <div class="form-date">
         <div class="form-group form-group-day">
           <label for="dob-day">Day</label>

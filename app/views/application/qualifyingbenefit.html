@@ -1,0 +1,91 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+  <!-- HEADING -->
+  <h1 class="form-title heading-large">
+    What benefit is the person you care for getting?
+  </h1>
+
+  <form action="claimdate" method="get" class="form">
+
+
+    <!-- qualifyingbenefit -->
+    <fieldset class="form-group">
+      <p class="form-hint">Choose all that apply to you.</p>
+      <label class="block-label" for="pip" data-target="qb-start">
+        <input id="pip" type="radio" name="qb" value="pip">
+        Personal Independence Payment - daily living
+      </label>
+      <label class="block-label" for="dla" data-target="qb-start">
+        <input id="dla" type="radio" name="qb" value="dla">
+        Disabiity living allowance - at middle or highest rate
+      </label>
+      <label class="block-label" for="aa" data-target="qb-start">
+        <input id="aa" type="radio" name="qb" value="aa">
+        Attendance Allowance
+      </label>
+      <label class="block-label" for="caa" data-target="qb-start">
+        <input id="caa" type="radio" name="qb" value="caa">
+        Constant Attendance Allowance
+      </label>
+      <label class="block-label" for="afip" data-target="qb-start">
+        <input id="afip" type="radio" name="qb" value="afip">
+        Armed Forces Independent Payment
+      </label>
+      <label class="block-label" for="other-income-none" data-target="none">
+        <input id="other-income-none" type="radio" name="qb" value="none">
+        None of these
+      </label>
+    </fieldset>
+    <div class="js-hidden panel" id="qb-start">
+    <fieldset class="form-group">
+      <legend class="heading-medium">Were they awarded this benefit in the last 3 months?</legend>
+      <label class="block-label" for="radio-yes" data-target="no-target">
+        <input id="radio-yes" type="radio" name="radio-group" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="radio-no">
+        <input id="radio-no" type="radio" name="radio-group" value="No">
+        No, they've been getting it for longer
+      </label>
+    </fieldset>
+
+    <fieldset class="form-group js-hidden panel" id="no-target">
+      <h2 class="heading-medium" style="margin-bottom:5px">When did they start being paid this benefit?</h2 >
+      <p class='hint-text'>You can find this on their award letter if you don't know it.</p>
+      <div class="form-date">
+        <div class="form-group form-group-day">
+          <label for="qb-day">Day</label>
+          <input type="text" class="form-control" id="dob-day" name="qb-day">
+        </div>
+        <div class="form-group form-group-month">
+          <label for="qb-month">Month</label>
+          <input type="text" class="form-control" id="dob-month" name="qb-month">
+        </div>
+        <div class="form-group form-group-year">
+          <label for="qb-year">Year</label>
+          <input type="text" class="form-control" id="dob-year" name="qb-year">
+        </div>
+      </div>
+    </fieldset>
+    </div>
+    <div class="js-hidden panel" id="none">
+      <p>The person you care for must get one of these benefits before you can apply for Carer's Allowance. If they've applied for one but not got their award letter yet, wait until they have it and then apply again.</p>
+    </div>
+
+
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}

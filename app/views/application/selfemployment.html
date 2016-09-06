@@ -12,41 +12,11 @@
     Your income - self-employment
   </h1>
 
-  <form action="paydetails" method="post" class="form" id="theForm">
-
-    <!-- Still working -->
-    <fieldset class="form-group">
-      <legend class="form-label-bold">What type of work are you doing?</legend>
-      <label class="block-label" for="still-doing-yes">
-        <input id="still-doing-yes" type="radio" name="still-doing" value="Yes">
-        Self-employed
-      </label>
-      <label class="block-label" for="still-doing-no" data-target="date-finish">
-        <input id="still-doing-no" type="radio" name="still-doing" value="No">
-        Employed
-      </label>
+  <form action="selfemploymentcontinued" method="get" class="form" id="theForm">
+    <fieldset class="form-group inline">
+        <legend class="form-label-bold">What sort of work do you do?</legend>
+        <input class="form-control" id="trade" name="trade" type="text" aria-required="true">
     </fieldset>
-
-    <!-- When finish -->
-    <fieldset class="form-group panel js-hidden" id="date-finish">
-      <h2 class="form-label-bold" style="margin-bottom:5px">When did you finish this work?</h2>
-      {# <p class="form-hint">For example, 30 9 2014</p> #}
-      <div class="form-date">
-        <div class="form-group form-group-day">
-          <label for="work-day">Day</label>
-          <input type="text" class="form-control" id="work-day" name="work-day">
-        </div>
-        <div class="form-group form-group-month">
-          <label for="work-month">Month</label>
-          <input type="text" class="form-control" id="work-month" name="work-month">
-        </div>
-        <div class="form-group form-group-year">
-          <label for="work-year">Year</label>
-          <input type="text" class="form-control" id="work-year" name="work-year">
-        </div>
-      </div>
-    </fieldset>
-
     <!-- More than year? -->
     <fieldset class="form-group inline">
       <legend class="form-label-bold">Did you start this work more than a year ago?</legend>
@@ -79,8 +49,8 @@
       </div>
       <!-- Paid money? -->
       <div class="">
-        <legend class="form-label-bold">Has your self-employed business been paid any money yet?</legend>
-        <p class="form-hint">This includes money paid directly to you or into a business account.</p>
+        <legend class="form-label-bold">Have you been paid anything yet?</legend>
+        <p class="form-hint">This means if anyone has paid for the work you've done, whether directly or into your business.</p>
         <label class="block-label" for="paid-yes" data-target="date-money">
           <input id="paid-yes" type="radio" name="paid" value="Yes">
           Yes
@@ -91,8 +61,9 @@
         </label>
       </div>
       <!-- Date money? -->
-      <fieldset class="form-group inline panel js-hidden" id="date-money" style="margin-top:10px">
-        <h2 class="form-label-bold" style="margin-bottom:5px">Date money first received by the businesss</h2>
+      <div class="form-group inline panel js-hidden" id="date-money" style="margin-top:10px">
+        <fieldset>
+        <h2 class="form-label-bold" style="margin-bottom:5px">Date first paid</h2>
         <div class="form-date form-group">
           <div class="form-group form-group-day">
             <label for="datemoney-day">Day</label>
@@ -108,12 +79,18 @@
           </div>
         </div>
       </fieldset>
+        <fieldset>
+        <div>
+        <legend class="form-label-bold">How much money has the business been paid to date</legend>
+        <input class="form-control" id="totalpaid" name="totalpaid" type="text" aria-required="true">
+        </div>
+      </fieldset>
     </fieldset>
 
     <!-- Have accounts? -->
     <fieldset class="form-group inline panel js-hidden" id="yes-more-year">
-      <h2 class="form-label-bold">Do you have accounts for your business?</h2>
-      <p class="form-hint">This means records of costs, sales and expenses of your self-employment.</p>
+      <h2 class="form-label-bold">Have you ever sent accounts for your business to HMRC?</h2>
+      <p class="form-hint">This means records of costs, sales and expenses.</p>
       <label class="block-label" for="accounts-yes" data-target="yes-accounts">
         <input id="accounts-yes" type="radio" name="accounts" value="Yes">
         Yes
@@ -122,22 +99,28 @@
         <input id="accounts-no" type="radio" name="accounts" value="No">
         No
       </label>
-      <p id="yes-accounts" class="js-hidden" style="clear:both;padding-top:10px">You must send a copy of your most recent accounts to the Carer's Allowance Unit.</p>
+    <fieldset id="yes-accounts" class="js-hidden" >
+        <legend class="form-label-bold">What was the total trading income on your last accounts?</legend>
+        <input class="form-control" id="accincome" name="accincome" type="text" aria-required="true">
+      <p style="clear:both;padding-top:10px">You must send a copy of your most recent accounts to the Carer's Allowance Unit.</p>
+     </fieldset>
+      </fieldset>
       <!-- Know trading year? -->
       <fieldset class="form-group inline panel js-hidden" style="margin-top:10px;" id="no-accounts">
-        <h2 class="form-label-bold">Do you know your trading year?</h2>
-        <p class="form-hint">This is the date you do your accounts to each year - it's often the same as the tax year, but it doesn't have to be.</p>
-        <label class="block-label" for="tradingyear-yes" data-target="tradingyear-start">
+        <h2 class="form-label-bold">Do you plan to do your accounts from April to April each year?</h2>
+        <p class="form-hint">Most businesses work out their annual profits to April as it matches the tax year, but some don't - this is known as a trading year.</p>
+        <label class="block-label" for="tradingyear-yes" data-target="">
           <input id="tradingyear-yes" type="radio" name="tradingyear" value="Yes">
-          Yes
+          Yes, you'll probably use the tax year for your accounts
         </label>
-        <label class="block-label" for="tradingyear-no" data-target="">
+        <label class="block-label" for="tradingyear-no" data-target="tradingyear-start">
           <input id="tradingyear-no" type="radio" name="tradingyear" value="No">
-          No
+          No, you plan to do accounts to a different date
         </label>
         <!-- Trading year date-->
-        <fieldset class="form-group panel js-hidden" id="tradingyear-start" style="margin-top:10px;">
-          <h2 class="form-label-bold" style="margin-bottom:5px">Trading year start date</h2>
+        <div class="form-group panel js-hidden" id="tradingyear-start" style="margin-top:10px;">
+          <fieldset>
+          <h2 class="form-label-bold" style="margin-bottom:5px">Your trading year start date</h2>
           <div class="form-date">
             <div class="form-group form-group-day">
               <label for="tradingyear-day">Day</label>
@@ -147,13 +130,14 @@
               <label for="tradingyear-month">Month</label>
               <input type="text" class="form-control" id="tradingyear-month" name="tradingyear-month">
             </div>
-            <div class="form-group form-group-year">
-              <label for="tradingyear-year">Year</label>
-              <input type="text" class="form-control" id="tradingyear-year" name="tradingyear-year">
-            </div>
+          </div>
+          </fieldset>
+          <fieldset>
+          <div>
+            <legend class="form-label-bold">How much money has the business been paid up to now</legend>
+            <input class="form-control" id="accincome" name="accincome" type="text" aria-required="true">
           </div>
         </fieldset>
-      </fieldset>
     </fieldset>
 
     <fieldset class="primary-nav form-group">

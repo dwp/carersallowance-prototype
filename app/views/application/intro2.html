@@ -1,0 +1,83 @@
+{% extends "application/layout_govuk.html" %}
+
+{% block c_content %}
+
+  <h1 class="form-title heading-xlarge"> Apply for Carer's Allowance</h1>
+
+  <!-- INTRO NAVIGAITON -->
+
+      <nav class="intro-nav">
+        <ol>
+          <li class="font-xsmall">
+            <span class="part-number">1.</span>
+            <a href="/" title="Part 1: How it works"><span>How it works</span></a>
+          </li>
+          <li class="font-xsmall">
+            <span class="part-number">3.</span>
+            <a href="intro3" title="Part 3: Effect on other benefits">Effect on other benefits</a>
+          </li>
+          <li class="font-xsmall">
+            <span class="part-number">2.</span>
+            Eligibility
+          </li>
+          <li class="active font-xsmall">
+            <span class="part-number">4.</span>
+            <a href="intro4" title="Part 4: Apply">Apply</a>
+          </li>
+          <!--
+          <li class="font-xsmall">
+            <span class="part-number">2.</span>
+            <a href="intro2" title="Part 2: Eligibility">Eligibility</a>
+          </li>
+        -->
+        </ol>
+      </nav>
+
+  <!-- CONTENT -->
+  <div class="intro-content">
+  	<h2 class="heading-medium">2. Eligibility</h2>
+        
+
+
+  <h2 class="heading-medium">The person you care for</h2>
+
+<p>The person you care for must already get one of these benefits:</p>
+
+<ul class='list-bullet'>
+  <li>Personal Independence Payment - daily living component</li>
+  <li>Disability Living Allowance - the middle or highest care rate</li>
+  <li>Attendance Allowance</li>
+  <li>Constant Attendance Allowance at or above the normal maximum rate with an Industrial Injuries Disablement Benefit</li>
+  <li>Constant Attendance Allowance at the basic (full day) rate with a War Disablement Pension</li>
+  <li>Armed Forces Independence Payment</li>
+</ul>
+
+<h2 class="heading-medium">You</h2>
+
+<p>You might be able to get Carer’s Allowance if all of the following apply:</p>
+
+<ul class='list-bullet'>
+  <li>you’re 16 or over</li>
+  <li>you spend at least 35 hours a week caring for someone</li>
+  <li>have been in England, Scotland or Wales for at least 2 of the last 3 years</li>
+  <li>you normally live in England, Scotland or Wales, or you live abroad as a member of the armed forces</li>
+  <li>you’re not in full-time education</li>
+  <li>you’re not studying for 21 hours a week or more</li>
+  <li>you earn no more than £110 a week (after taxes, care costs while you’re at work and 50% of what you pay into your pension) - don’t count your pension as income</li>
+  <li>you’re not subject to <a rel="external" href="http://www.adviceguide.org.uk/england/benefits_e/benefits_coming_from_abroad_and_claiming_benefits_hrt/non-eea_nationals_and_the_hrt/are_you_subject_to_immigration_control_hrt.htm">immigration control</a>
+</li>
+</ul>
+
+<p>You might still be eligible if you’re moving to or already living in another <a href="/claiming-benefits-move-travel-abroad/where-you-can-claim-benefits">EEA country</a>.</p>
+
+<div class="panel-indent" style="margin-bottom:30px !important">
+<p>The rules are different in <a rel="external" href="http://www.nidirect.gov.uk/carersallowance">Northern Ireland.</a></p>
+</div>
+
+
+
+  <nav class="intro-next">
+    <a href="intro3" rel="next" title="Navigate to next part">Next<span class="pagination-part-title">What you'll get</span></a>
+  </nav>
+
+{% endblock %}

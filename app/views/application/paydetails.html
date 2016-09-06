@@ -9,7 +9,7 @@
 
 	<!-- HEADING -->
   <h1 class="form-title heading-large">
-    Pay details
+    Your bank details
   </h1>
 
   <form action="checkanswers" method="post" class="form" id="theForm">
@@ -19,7 +19,7 @@
     <!-- bank account? -->
     <fieldset class="form-group inline">
       <legend class="form-label-bold">Do you have a bank account?</legend>
-      <label class="block-label" for="bankaccount-yes">
+      <label class="block-label" for="bankaccount-yes"  data-target="bank">
         <input id="bankaccount-yes" type="radio" name="bankaccount" value="Yes">
         Yes
       </label>
@@ -31,7 +31,7 @@
 
     <div id="no-bank" class="form-group error js-hidden" style="border:5px solid #b10e1e; padding:15px">You can carry on without giving bank details, but you'll need an account if your claim's successful.</div>
 
-    <fieldset class="form-group panel">
+    <fieldset class="form-group panel js-hidden" id='bank'>
       <h2 class="heading-medium">Bank/Building Society details</h2>
       <!-- Account holder -->
       <div class="form-group">

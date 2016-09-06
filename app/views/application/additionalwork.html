@@ -1,0 +1,35 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large">
+    Have you done any other work in the last 6 months that you haven't mentioned yet?
+  </h1>
+
+  <form action="costs" method="get" class="form" id="theForm">
+       <fieldset class="form-group inline">
+      <label class="block-label" for="morework-yes">
+        <input id="morework-yes" type="radio" name="morework" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="morework-no" data-target="caree-address">
+        <input id="morework-no" type="radio" name="morework" value="No">
+        No
+      </label>
+    </fieldset>
+
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}

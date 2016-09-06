@@ -12,12 +12,12 @@
     Are you applying for {{ serviceName }} for yourself?
   </h1>
 
-  <form action="claimdate" method="post" class="form" id="theForm">
+  <form action="qualifyingbenefit" method="get" class="form" id="theForm">
 
     <fieldset class="form-group">
       <label class="block-label" for="radio-yes">
         <input id="radio-yes" type="radio" name="radio-inline-group" value="Yes">
-        Yes, you’re the carer
+        Yes, you’re the person who will be paid Carer's Allowance
       </label>
       <label class="block-label" for="radio-no" data-target="no-target">
         <input id="radio-no" type="radio" name="radio-inline-group" value="No">
@@ -26,9 +26,10 @@
     </fieldset>
 
     <fieldset class="form-group js-hidden panel" id="no-target">
-      <h3 class="heading-small">Your name and organisation</h3>
+      <h3 class="heading-small">Your name and relationship to the carer</h3>
+      <p class='form-hint'>For example, "Jane Smith, wife" or "John Smith, Citizen's Advice Bureau adviser".</p>
       <input type="text" class="form-control" name="name" />
-      <p class='form-hint'>Fill the rest of this form in as if you're the carer. For example, if asked for 'your address' put the address of the person doing the caring.</p>
+      <p>Remember from this point on to fill the rest of this form in as if you're the carer. For example, if asked for 'your address' put the address of the person doing the caring not your own.</p>
     </fieldset>
 
     <fieldset class="primary-nav form-group">

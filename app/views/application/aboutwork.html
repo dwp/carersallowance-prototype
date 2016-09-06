@@ -1,0 +1,80 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large">
+    Your income - about your work
+  </h1>
+
+  <form action="employment" method="get" class="form" id="theForm">
+
+    <!-- Still working -->
+    <fieldset class="form-group inline">
+      <legend class="form-label-bold">Are you still doing this work?</legend>
+      <label class="block-label" for="still-doing-yes" data-target="no-date-finish">
+        <input id="still-doing-yes" type="radio" name="still-doing" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="still-doing-no" data-target="date-finish">
+        <input id="still-doing-no" type="radio" name="still-doing" value="No">
+        No
+      </label>
+    </fieldset>
+    <!-- Still working -->
+    <fieldset class="form-group panel js-hidden" id="no-date-finish">
+      <legend class="form-label-bold">What type of work is this?</legend>
+      <label class="block-label" for="currentselfemp">
+        <input id="currentselfemp" type="radio" name="worktype" value="selfemp">
+        Self-employed
+      </label>
+      <label class="block-label" for="currentemp">
+        <input id="currentemp" type="radio" name="worktype" value="emp">
+        Employed
+      </label>
+    </fieldset>
+    <!-- When finish -->
+    <fieldset class="form-group panel js-hidden" id="date-finish">
+          <!-- Still working -->
+    <fieldset class="form-group">
+      <legend class="form-label-bold">What type of work was this?</legend>
+      <label class="block-label" for="prevselfemp">
+        <input id="prevselfemp" type="radio" name="prevworktype" value="selfemp">
+        Self-employed
+      </label>
+      <label class="block-label" for="prevemp">
+        <input id="prevemp" type="radio" name="prevworktype" value="emp">
+        Employed
+      </label>
+    </fieldset>
+      <h2 class="form-label-bold" style="margin-bottom:5px">When did you finish this work?</h2>
+      {# <p class="form-hint">For example, 30 9 2014</p> #}
+      <div class="form-date">
+        <div class="form-group form-group-day">
+          <label for="work-day">Day</label>
+          <input type="text" class="form-control" id="work-day" name="work-day">
+        </div>
+        <div class="form-group form-group-month">
+          <label for="work-month">Month</label>
+          <input type="text" class="form-control" id="work-month" name="work-month">
+        </div>
+        <div class="form-group form-group-year">
+          <label for="work-year">Year</label>
+          <input type="text" class="form-control" id="work-year" name="work-year">
+        </div>
+      </div>
+    </fieldset>
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}

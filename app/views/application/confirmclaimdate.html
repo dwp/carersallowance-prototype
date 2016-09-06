@@ -1,0 +1,60 @@
+{% extends "application/layout.html" %}
+
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+
+{% block c_content %}
+
+  <!-- BACK LINK -->
+  <p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+	<!-- HEADING -->
+  <h1 class="form-title heading-large">
+    Your claim date
+  </h1>
+
+  <form action="aboutyou" method="get" class="form" id="theForm">
+    <p>It looks like you could apply to be paid Carer's Allowance backdated to <form>3 June 2016</span>.</p>
+    <p>Based on your answers, on this date:</p>
+    <ul class='list-bullet'>
+          <li>you were giving at least 35 hours of care most weeks</li>
+          <li>the person you care for was being paid a qualifying benefit (this will be checked)</li>
+    </ul>
+    <fieldset class="form-group">
+      <h2 class="heading-medium">Do you want to use 3 July as your claim date?</h2>
+      <label class="block-label" for="confirmdate">
+        <input id="confirmdate" type="radio" name="confirm" value="Yes">
+        Yes
+      </label>
+      <label class="block-label" for="changedate" data-target="startdate">
+        <input id="changedate" type="radio" name="confirm" value="No">
+        No, you want to use a different date
+      </label>
+    </fieldset>
+    <fieldset  class="form-group js-hidden panel" id="startdate">
+      <legend class="heading-medium" style="margin-bottom:5px">When do you want to claim Carer's Allowance from?</legend>
+      <!-- <p>For example, 08 4 2014.</p> -->
+      <div class="form-date">
+        <div class="form-group form-group-day">
+          <label for="claim-day">Day</label>
+          <input type="text" class="form-control" id="claim-day" name="claim-day">
+        </div>
+        <div class="form-group form-group-month">
+          <label for="claim-month">Month</label>
+          <input type="text" class="form-control" id="claim-month" name="claim-month">
+        </div>
+        <div class="form-group form-group-year">
+          <label for="claim-year">Year</label>
+          <input type="text" class="form-control" id="claim-year" name="claim-year">
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="primary-nav form-group">
+      <input type="submit" value="Continue" class="button" id="submitButton"/>
+    </fieldset>
+
+  </form>
+
+{% endblock %}
+
+{% block page_script %}{% endblock %}
