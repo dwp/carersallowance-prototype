@@ -17,6 +17,7 @@
     "consolidate": "0.x",
     "express": "4.13.3",
     "express-nunjucks": "^0.9.3",
+    "express-session": "^1.14.1",
     "express-writer": "0.0.4",
     "govuk-elements-sass": "alphagov/govuk_elements#v1.1.1",
     "govuk_frontend_toolkit": "^4.6.0",
@@ -32,9 +33,11 @@
     "hogan.js": "3.0.2",
     "merge": "^1.2.0",
     "minimist": "0.0.8",
+    "moment": "^2.15.0",
     "portscanner": "^1.0.0",
     "prompt": "^0.2.14",
     "readdir": "0.0.6",
-    "serve-favicon": "2.3.0"
+    "serve-favicon": "2.3.0",
+    "underscore": "^1.8.3"
   }
 }

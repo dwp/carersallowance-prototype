@@ -12,8 +12,8 @@
     Your claim date
   </h1>
 
-  <form action="aboutyou" method="get" class="form" id="theForm">
-    <p>It looks like you could apply to be paid Carer's Allowance backdated to <form>3 June 2016</span>.</p>
+  <form action="aboutyou" method="post" class="form" id="theForm">
+    <p>It looks like you could apply to be paid Carer's Allowance backdated to <span>{{ backdate | formatDate("Do MMMM YYYY") }}</span>.</p>
     <p>Based on your answers, on this date:</p>
     <ul class='list-bullet'>
           <li>you were giving at least 35 hours of care most weeks</li>
@@ -53,7 +53,7 @@
       <input type="submit" value="Continue" class="button" id="submitButton"/>
     </fieldset>
 
-  </form>
+  </span>
 
 {% endblock %}
 

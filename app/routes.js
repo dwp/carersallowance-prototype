@@ -1,8 +1,10 @@
 var express = require('express');
 var router = express.Router();
+var tog = require(__dirname + '/../lib/tog.js');
+var moment = require('moment');
 
 router.get('/', function (req, res) {
-  
+
   res.render('index');
 
 });
@@ -37,6 +39,36 @@ router.get('/examples/over-18', function (req, res) {
 
   }
 
+});
+
+router.get('/application/confirmclaimdate', function(req,res,next)
+{
+  var today = new moment();
+  var qualben = req.session.data.qualifyingbenefit;
+
+  if (qualben['radio-group'] == "Yes") // within 3 months
+  {
+    var qualbenstring = qualben["qb-year"]+'-'+qualben["qb-month"]+'-'+qualben["qb-day"];
+    var qualbendate = new moment(qualbenstring);
+    qual_start = qualbendate;
+  } else {
+    qual_start = today.subtract(3,'months');
+  }
+  
+  var claimdate = req.session.data.claimdate;
+  var claimdatestring = claimdate["work-dob-year"]+'-'+claimdate["work-dob-month"]+'-'+claimdate["work-dob-day"];
+  var claim_start = new moment(claimdatestring);
+  console.log(claim_start.toString());
+
+  var backdate;
+  if (claim_start < qual_start) backdate = qual_start;
+  else if (claim_start > qual_start) backdate = claim_start;
+
+  req.data = req.data || {};
+  req.data.backdate = backdate;
+
+  // res.send(tog(req.session.data));
+  next();
 });
 
 // add your routes here

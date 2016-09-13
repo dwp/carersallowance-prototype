@@ -24,6 +24,7 @@
 {% endblock %}
 
 {% block content %}
+{{ session.data | log }}
 <main id="content" role="main">
 
   {% include "application/inc_alpha.html" %}

@@ -4,6 +4,7 @@ var path = require('path'),
     def_routes = require(__dirname + '/lib/default-routes.js'),
     routes = require(__dirname + '/app/routes.js'),
     favicon = require('serve-favicon'),
+    moment = require('moment'),
     app = express(),
     basicAuth = require('basic-auth'),
     bodyParser = require('body-parser'),
@@ -11,9 +12,12 @@ var path = require('path'),
     port = (process.env.PORT || config.port),
     utils = require(__dirname + '/lib/utils.js'),
     packageJson = require(__dirname + '/package.json'),
+    session = require('express-session'),
+    user_data = require(__dirname + '/lib/user_data.js'),
 
 // Grab environment variables specified in Procfile or as Heroku config vars
     releaseVersion = packageJson.version;
+    sessionSecret = process.env.SESSION_SECRET || 'sessionsecret',
     username = process.env.USERNAME,
     password = process.env.PASSWORD,
     env      = process.env.NODE_ENV || 'development',
@@ -38,7 +42,21 @@ nunjucks.setup({
   autoescape: true,
   watch: true,
   noCache: true
-}, app);
+}, app, function(env)
+{
+  var nunjucksSafe = env.getFilter('safe');
+  env.addFilter('log', function log(a) {
+    return nunjucksSafe('<script>console.log(' + JSON.stringify(a, null, '\t') + ');</script>');
+  });
+  env.addFilter('log', function log(a) {
+  	return nunjucksSafe('<script>console.log(' + JSON.stringify(a, null, '\t') + ');</script>');
+  });
+  env.addFilter('formatDate', function(str,format) {
+    var d = moment(str).format(format);
+    if (d !== 'Invalid date') return d;
+    else return '';
+  });
+});
 
 // Middleware to serve static assets
 app.use('/public', express.static(__dirname + '/public'));
@@ -54,6 +72,14 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
   extended: true
 }));
+app.use(session({
+  secret: sessionSecret,
+  cookie: { maxAge: 30 * 60 * 1000 },
+  resave: true,
+  saveUninitialized: true,
+  rolling: true
+}));
+app.use(user_data.save_input_data());
 
 // send assetPath to all views
 app.use(function (req, res, next) {
@@ -75,8 +101,8 @@ if (typeof(routes) != "function"){
   console.log("Warning: the use of bind in routes is deprecated - please check the prototype kit documentation for writing routes.")
   routes.bind(app);
 } else {
-  app.use("/", def_routes);
   app.use("/", routes);
+  app.use("/", def_routes);
 }
 
 console.log("\nGOV.UK Prototype kit v" + releaseVersion);
