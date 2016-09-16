@@ -22,23 +22,33 @@ router.get('/examples/template-data', function (req, res) {
 
 // Branching
 
-router.get('/examples/over-18', function (req, res) {
+router.get('/application/aboutwork', function (req, res) {
 
   // get the answer from the query string (eg. ?over18=false)
-  var over18 = req.query.over18;
-
-  if (over18 == "false"){
-
+  var worked = req.query.worked;
+  if (worked === 'No') {
     // redirect to the relevant page
-    res.redirect("/examples/under-18");
-
+    res.redirect("/application/paydetails");
   } else {
 
     // if over18 is any other value (or is missing) render the page requested
-    res.render('examples/over-18');
-
+    res.render('application/aboutwork');
   }
+});
 
+router.get('/application/employment', function (req, res) {
+
+  // get the answer from the query string (eg. ?over18=false)
+  var worktype = req.query.worktype;
+  var prevworktype = req.query.prevworktype;
+  if (worktype == 'selfemp' || prevworktype === 'selfemp') {
+    // redirect to the relevant page
+    res.redirect("/application/selfemployment");
+  } else {
+
+    // if over18 is any other value (or is missing) render the page requested
+    res.render('application/employment');
+  }
 });
 
 router.get('/application/confirmclaimdate', function(req,res,next)
