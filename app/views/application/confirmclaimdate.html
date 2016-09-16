@@ -20,7 +20,7 @@
           <li>the person you care for was being paid a qualifying benefit (this will be checked)</li>
     </ul>
     <fieldset class="form-group">
-      <h2 class="heading-medium">Do you want to use 3 July as your claim date?</h2>
+      <h2 class="heading-medium">Do you want to use <span>{{ backdate | formatDate("Do MMMM YYYY") }}</span> as your claim date?</h2>
       <label class="block-label" for="confirmdate">
         <input id="confirmdate" type="radio" name="confirm" value="Yes">
         Yes
