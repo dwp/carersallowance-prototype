@@ -1,0 +1,33 @@
+{% extends "application/layout.html" %}
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+{% block c_content %}
+<!-- BACK LINK -->
+<p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+  <h1 class="form-title heading-large">Can you get Carer's Allowance?</h1>
+
+  <h2 class="heading-medium">Based on your answers, you may get Carer's Allowance if:</h2>
+  
+  <ul class="list list-bullet">
+    <li>your income is no more than £110 a week (after tax and certain expenses)</li>
+    <li>you study less than 21 hours a week</li>
+  </ul>
+  
+  <h2 class="heading-medium">To make your application you'll need:</h2>
+  
+  <ul class="list list-number">
+    <li>National Insurance numbers for you and your partner if you have one</li>
+    <li>bank details</li>
+    <li>your latest payslip or P45 if you’ve recently finished working</li>
+    <li>the National Insurance number or Disability Living Allowance reference of the person you care for</li>
+  </ul>
+
+  <form action="start" method="POST">
+
+    <nav class="form-steps" role="navigation" style="clear:both;padding-top:40px">
+      <button type="submit" name="action" value="next" class="button">Continue  </button>
+    </nav>
+
+  </form>
+{% endblock %}
+{% block page_script %}{% endblock %}

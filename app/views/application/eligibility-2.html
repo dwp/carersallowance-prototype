@@ -1,0 +1,72 @@
+{% extends "application/layout.html" %}
+{% block page_title %}{{ serviceName }} - Start{% endblock %}
+{% block c_content %}
+<!-- BACK LINK -->
+<p class="back-link"><a href="javascript:history.go(-1);">Back</a></p>
+
+  <h1 class="form-title heading-large">Can you get Carer's Allowance?</h1>
+
+  <form action="eligibility-result" method="POST" role="form">
+		
+		<h2 class="heading-small">Do you spend 35 hours or more each week caring for the person you care for?</h2>
+		
+		<p class="form-hint">This means any time that you look after them personally and includes things like cooking meals or helping them with shopping.</p>
+		
+		<fieldset class="inline clearfix">
+			<label class="block-label" for="thirtyfive-yes">
+				<input id="thirtyfive-yes" type="radio" name="thirtyfive" value="Yes">
+				Yes
+			</label>
+			<label class="block-label" for="thirtyfive-no" data-target="warninghours_answer">
+				<input id="thirtyfive-no" type="radio" name="thirtyfive" value="No">
+				No
+			</label>
+		</fieldset>
+		
+		<div id="warninghours_answer" class="error-summary js-hidden">
+			<p>You can't get Carer's Allowance if you care for someone less than 35 hours a week. You might still be entitled to <a rel="external" href="https://gov.uk/carers-credit" target="_blank"> Carer's Credit</a>.</p>
+		</div>
+		
+		<fieldset class="inline">
+			<h2 class="heading-small">Are you aged 16 or over?</h2>
+			<label class="block-label" for="sixteen-yes">
+				<input id="sixteen-yes" type="radio" name="sixteen" value="Yes">
+				Yes
+			</label>
+			<label class="block-label" for="sixteen-no" data-target="warningover16_answer">
+				<input id="sixteen-no" type="radio" name="sixteen" value="No">
+				No
+			</label>
+		</fieldset>
+		
+		<div id="warningover16_answer" class="error-summary js-hidden">
+      <p>You can only get Carer's Allowance if you're 16 or over.</p>
+    </div>
+		
+		<fieldset class="">
+			<h2 class="heading-small">Which country do you live in?</h2>
+			<label class="block-label" for="country-uk">
+				<input id="country-uk" type="radio" name="country" value="Yes">
+				England, Wales or Scotland
+			</label>
+			<label class="block-label" for="country-ire" data-target="">
+				<input id="country-ire" type="radio" name="country" value="No">
+				Northern Ireland
+			</label>
+			<label class="block-label" for="country-another" data-target="originWarning">
+				<input id="country-another" type="radio" name="country" value="No">
+				Another country
+			</label>
+		</fieldset>
+		
+		<div id="originWarning" class="error-summary js-hidden">
+        <p>You can normally get Carer's Allowance if you live in England, Scotland or Wales. You might get it if you live in the EEA (European Economic Area) or Switzerland, but you must apply to find out.</p>
+    </div>
+
+    <nav class="form-steps" role="navigation" style="clear:both;padding-top:40px">
+      <button type="submit" name="action" value="next" class="button">Continue  </button>
+    </nav>
+
+  </form>
+{% endblock %}
+{% block page_script %}{% endblock %}
