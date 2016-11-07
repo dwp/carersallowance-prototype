@@ -17,7 +17,7 @@
 
     <!-- qualifyingbenefit -->
     <fieldset class="form-group">
-      <p class="form-hint">Choose all that apply to you.</p>
+      {# <p class="form-hint">Choose all that apply to you.</p> #}
       <label class="block-label" for="pip" data-target="qb-start">
         <input id="pip" type="radio" name="qb" value="pip">
         Personal Independence Payment - daily living
@@ -44,7 +44,7 @@
       </label>
     </fieldset>
     <div class="js-hidden panel" id="qb-start">
-    <fieldset class="form-group">
+    <fieldset style="margin-bottom:10px;">
       <legend class="heading-medium">Were they awarded this benefit in the last 3 months?</legend>
       <label class="block-label" for="radio-yes" data-target="no-target">
         <input id="radio-yes" type="radio" name="radio-group" value="Yes">
@@ -56,7 +56,7 @@
       </label>
     </fieldset>
 
-    <fieldset class="form-group js-hidden panel" id="no-target">
+    <fieldset class="form-group js-hidden panel" id="no-target" style="margin-top:10px">
       <h2 class="heading-medium" style="margin-bottom:5px">From when were they paid the benefit?</h2 >
       <p class='hint-text'>This is the payment date shown on their award letter, and could be backdated - it's not the date they got the letter.</p>
       <div class="form-date">
@@ -80,7 +80,7 @@
     </div>
 
 
-    <fieldset class="primary-nav form-group">
+    <fieldset class="primary-nav form-group" style="margin-top:10px">
       <input type="submit" value="Continue" class="button" id="submitButton"/>
     </fieldset>
 
