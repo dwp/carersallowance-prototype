@@ -53,7 +53,6 @@ router.get('/application/employment', function (req, res) {
 
 router.get('/application/confirmclaimdate', function(req,res,next)
 {
-  var today = new moment();
   var qualben = req.session.data.qualifyingbenefit;
   var qblast3 = false;
 
@@ -61,16 +60,26 @@ router.get('/application/confirmclaimdate', function(req,res,next)
   {
     var qualbenstring = qualben["qb-year"]+'-'+qualben["qb-month"]+'-'+qualben["qb-day"];
     var qualbendate = new moment(qualbenstring);
-    qual_start = qualbendate;    
+    qual_start = qualbendate;
     qblast3 = true;
   } else {
-    qual_start = today.subtract(3,'months');
+    qual_start = new moment().subtract(3,'months');
   }
   
+  // console.log("qualstart: "+qual_start.toString());
+
+  var overayear = new moment().subtract(12,'months');
+
   var claimdate = req.session.data.claimdate;
-  var claimdatestring = claimdate["work-dob-year"]+'-'+claimdate["work-dob-month"]+'-'+claimdate["work-dob-day"];
-  var claim_start = new moment(claimdatestring);
-  console.log(claim_start.toString());
+  if (claimdate['radio-inline-group'] == 'longer')
+  {
+    var claim_start = new moment().subtract(3,'months');
+  } else {
+    var claimdatestring = claimdate["work-dob-year"]+'-'+claimdate["work-dob-month"]+'-'+claimdate["work-dob-day"];
+    var claim_start = new moment(claimdatestring);
+  }
+
+  // console.log("claimstart: "+claim_start.toString());
 
   var backdate;
   if (claim_start < qual_start || qblast3) backdate = qual_start;
