@@ -55,12 +55,14 @@ router.get('/application/confirmclaimdate', function(req,res,next)
 {
   var today = new moment();
   var qualben = req.session.data.qualifyingbenefit;
+  var qblast3 = false;
 
   if (qualben['radio-group'] == "Yes") // within 3 months
   {
     var qualbenstring = qualben["qb-year"]+'-'+qualben["qb-month"]+'-'+qualben["qb-day"];
     var qualbendate = new moment(qualbenstring);
-    qual_start = qualbendate;
+    qual_start = qualbendate;    
+    qblast3 = true;
   } else {
     qual_start = today.subtract(3,'months');
   }
@@ -71,7 +73,7 @@ router.get('/application/confirmclaimdate', function(req,res,next)
   console.log(claim_start.toString());
 
   var backdate;
-  if (claim_start < qual_start) backdate = qual_start;
+  if (claim_start < qual_start || qblast3) backdate = qual_start;
   else if (claim_start > qual_start) backdate = claim_start;
 
   req.data = req.data || {};
